@@ -29,6 +29,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <title>Free PDF Page Rotator - Rotate Individual or All Pages</title>
+        <meta charSet="utf-8"></meta>
+        <meta name="description" content="Rotate individual or all pages in your PDF effortlessly. No downloads or sign-ups. Fast, secure, and user-friendly. Try now!"></meta>
         {children}
       </body>
     </html>
