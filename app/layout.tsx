@@ -28,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <title>Free PDF Page Rotator - Rotate Individual or All Pages</title>
         {children}
       </body>
     </html>
