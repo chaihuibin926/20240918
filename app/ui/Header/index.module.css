@@ -1,0 +1,30 @@
+.logo {
+  padding: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: var(--serif);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  /* svg {
+    height: 18px;
+  } */
+}
+.header {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav a {
+  padding: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+.nav a:hover {
+  text-decoration-line: underline;
+}

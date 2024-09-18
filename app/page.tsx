@@ -1,0 +1,21 @@
+import Footer from "./ui/Footer";
+import Header from "./ui/Header";
+import PdfEditor from "./ui/PdfEditor";
+
+export default function Home() {
+  return (
+    <div>
+      <Header />
+      <main style={{background: 'rgb(247, 245, 238)'}}>
+        <div className="container mx-auto py-20 space-y-5">
+          <div className="flex flex-col text-center !mb-10 space-y-5">
+            <h1 className="text-5xl font-serif">Rotate PDF Pages</h1>
+            <p className="mt-2 text-gray-600 max-w-lg mx-auto">Simply click on a page to rotate it. You can then download your modified PDF.</p>
+          </div>
+          <PdfEditor />
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+}

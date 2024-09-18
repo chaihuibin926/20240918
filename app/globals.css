@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --sans: Inter, Segoe UI, Helvetica Neue, sans-serif;
+  --serif: Tiempos, serif;
+}
+
+html, body {
+  margin: 0;
+}
+h3 {
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+}
