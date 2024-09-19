@@ -136,14 +136,14 @@ const PdfEditor = () => {
             <div className="flex justify-center items-center space-x-3 selecto-ignore">
               <button onClick={rotateAll} className="rotate-all-btn !w-auto">Rotate all</button>
               <button onClick={removeFile} className="rotate-all-btn !w-auto !bg-gray-800" aria-label="Remove this PDF and select a new one" data-microtip-position="top" role="tooltip">Remove PDF</button>
-              <button onClick={enlarge} className="bg-[#ff612f] shadow rounded-full p-2 flex items-center justify-center hover:scale-105 grow-0 shrink-0 disabled:opacity-50 !bg-white" aria-label="Zoom in" data-microtip-position="top" role="tooltip">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"></path>
+              <button title='Zoom in' style={{opacity: scale === 3 ? 0.5 : 1}} onClick={enlarge} className="bg-[#ff612f] shadow rounded-full p-2 flex items-center justify-center hover:scale-105 grow-0 shrink-0 disabled:opacity-50 !bg-white" aria-label="Zoom in" data-microtip-position="top" role="tooltip">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"></path>
                 </svg>
               </button>
-              <button onClick={narrow} className="bg-[#ff612f] shadow rounded-full p-2 flex items-center justify-center hover:scale-105 grow-0 shrink-0 disabled:opacity-50 !bg-white" aria-label="Zoom out" data-microtip-position="top" role="tooltip">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6"></path>
+              <button title='Zoom out' style={{opacity: scale === 0.5 ? 0.5 : 1}} onClick={narrow} className="bg-[#ff612f] shadow rounded-full p-2 flex items-center justify-center hover:scale-105 grow-0 shrink-0 disabled:opacity-50 !bg-white" aria-label="Zoom out" data-microtip-position="top" role="tooltip">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6"></path>
                 </svg>
               </button>
             </div>
@@ -167,13 +167,19 @@ const PdfEditor = () => {
                     <div 
                       className='page-container'
                     >
-                      <Page 
-                        pageNumber={index + 1}
-                        rotate={page.rotate}
-                        width={180}
-                        height={255}
-                        scale={scale}
-                      />
+                      <div style={{flexGrow: 1, display: 'flex', alignItems: 'center'}}>
+                        <Page 
+                          pageNumber={index + 1}
+                          rotate={page.rotate}
+                          width={180}
+                          height={255}
+                          scale={scale}
+                          loading={null}
+                        />
+                      </div>
+                      <div
+                        className='w-[90%] text-center shrink-0 text-xs italic overflow-hidden text-ellipsis whitespace-nowrap'
+                      >{index + 1}</div>
                     </div>
                   </div>
                 )
