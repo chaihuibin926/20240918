@@ -9,6 +9,19 @@ import { degrees, PDFDocument } from 'pdf-lib';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+if (typeof Promise.withResolvers === 'undefined') {
+  if (window)
+      // @ts-expect-error This does not exist outside of polyfill which this is doing
+      window.Promise.withResolvers = function () {
+          let resolve, reject;
+          const promise = new Promise((res, rej) => {
+              resolve = res;
+              reject = rej;
+          });
+          return { promise, resolve, reject };
+      };
+}
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 // pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 //   'pdfjs-dist/build/pdf.worker.min.mjs',
