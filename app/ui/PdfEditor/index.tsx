@@ -9,38 +9,11 @@ import { degrees, PDFDocument } from 'pdf-lib';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
-
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 // pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 //   'pdfjs-dist/build/pdf.worker.min.mjs',
 //   import.meta.url,
 // ).toString();
-
-// Adding Promise type safety declarations
-declare global {
-  interface PromiseConstructor {
-    withResolvers<T = unknown>(): {
-      promise: Promise<T>;
-      resolve: (value: T | PromiseLike<T>) => void;
-      reject: (reason?: any) => void;
-    };
-  }
-}
-
-// Polyfill for Promise.withResolvers
-if (typeof Promise.withResolvers === 'undefined') {
-  (Promise as any).withResolvers = function () {
-    let resolve: (value: unknown) => void;
-    let reject: (reason?: any) => void;
-    const promise = new Promise((res, rej) => {
-      resolve = res;
-      reject = rej;
-    });
-    return { promise, resolve: resolve!, reject: reject! };
-  };
-}
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const RotateIcon = (props: {
   onClick: () => void;
