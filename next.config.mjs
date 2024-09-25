@@ -9,9 +9,9 @@ const nextConfig = {
     config.resolve.alias.encoding = false
     return config
   },
-  basePath: '/pdf',
-  assetPrefix: '/pdf',  // 如果有静态资源
-  trailingSlash: true,   // 可选，确保路径以斜杠结尾
+  // basePath: '/pdf',
+  // assetPrefix: '/pdf',  // 如果有静态资源
+  // trailingSlash: true,   // 可选，确保路径以斜杠结尾
 };
 
 export default nextConfig;
